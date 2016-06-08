@@ -1,2 +1,28 @@
 {
+  "react-babel": {
+    "eslintrc": {
+      "extends": "airbnb",
+      "plugins": [
+        "react"
+      ],
+      "rules": {
+        "comma-dangle": 0,
+        "no-param-reassign": [
+          "error",
+          {
+            "props": false
+          }
+        ]
+      }
+    },
+    "modules": [
+      "eslint",
+      "eslint-config-airbnb",
+      "eslint-config-airbnb-base",
+      "eslint-import-resolver-node",
+      "eslint-plugin-import",
+      "eslint-plugin-jsx-a11y",
+      "eslint-plugin-react"
+    ]
+  }
 }
