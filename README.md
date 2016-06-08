@@ -7,8 +7,8 @@ Install script globally.
 Save config.
 `eslint-confg save react-babel [dir_path]`
 
-Load config. Will overwrite any existing eslintrc/eslint modules.
+Load config and install required eslint modules
 `eslint-confg load react-babel [dir_path]`
 
-Remove loaded config.
+Remove loaded config and eslint modules.
 `eslint-confg remove react-babel [dir_path]`
