@@ -11,4 +11,4 @@ Load config. Will overwrite any existing eslintrc/eslint modules.
 `eslint-confg load react-babel [dir_path]`
 
 Remove loaded config.
-`eslint-confg remove react-babel`
+`eslint-confg remove react-babel [dir_path]`
