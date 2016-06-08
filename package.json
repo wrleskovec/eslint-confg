@@ -1,0 +1,27 @@
+{
+  "name": "eslint-confg",
+  "version": "1.0.0",
+  "description": "save and then generate saved eslint confs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrleskovec/eslint-confg.git"
+  },
+  "keywords": [],
+  "author": "William Leskovec <russell.leskovec@gmail.com> (https://wrleskovec.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wrleskovec/eslint-confg/issues"
+  },
+  "homepage": "https://github.com/wrleskovec/eslint-confg#readme",
+  "dependencies": {
+    "bluebird": "^3.4.0"
+  },
+  "bin": {
+    "eslint-confg": "index.js"
+  },
+  "devDependencies": {}
+}
