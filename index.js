@@ -5,9 +5,9 @@ var execAsync = Promise.promisify(require('child_process').exec);
 var argv = process.argv.slice(2);
 var path = require('path');
 
-if (['save', 'load', 'remove'].indexOf(argv[0]) > -1 && argv[1]) {
+if (['save', 'load', 'remove', 'show'].indexOf(argv[0]) > -1 && argv[1]) {
   var dirName = argv[2] ? path.resolve(argv[2]) : '.';
-  console.log(dirName);
+  process.chdir(dirName);
   var lintModules;
   var eslintrcConfig;
   var savedConfigs;
@@ -49,11 +49,12 @@ if (['save', 'load', 'remove'].indexOf(argv[0]) > -1 && argv[1]) {
   }
 
   if (argv[0] === 'load') {
+
     fs.readFileAsync(path.join(__dirname, '/configs.json'))
       .then(function(file) {
         savedConfigs = JSON.parse(file);
         if (savedConfigs[argv[1]]) {
-          return execAsync('npm -C '+ dirName + ' i -D ' + savedConfigs[argv[1]].modules.join(' '));
+          return execAsync('npm i -D ' + savedConfigs[argv[1]].modules.join(' '));
         }
         return Promise.reject('Config not found');
       })
@@ -73,7 +74,7 @@ if (['save', 'load', 'remove'].indexOf(argv[0]) > -1 && argv[1]) {
       .then(function(file) {
         savedConfigs = JSON.parse(file);
         if (savedConfigs[argv[1]]) {
-          return execAsync('npm -C '+ dirName + ' i -D ' + savedConfigs[argv[1]].modules.join(' '));
+          return execAsync('npm i -D ' + savedConfigs[argv[1]].modules.join(' '));
         }
         return Promise.reject('Config not found');
       })
@@ -86,6 +87,24 @@ if (['save', 'load', 'remove'].indexOf(argv[0]) > -1 && argv[1]) {
         console.log('loaded ' + argv[1] + ' config');
       });
   }
+  if (argv[0] === 'show') {
+    var configJSON = path.join(__dirname, '/configs.json');
+    fs.readFileAsync(configJSON)
+      .then(function(file) {
+        savedConfigs = JSON.parse(file);
+        console.log('Config path: ' + configJSON);
+        if (savedConfigs[argv[1]]) {
+          console.log(Object.keys(savedConfigs));
+        }
+        else if(savedConfigs[argv[1]] === 'all') {
+          console.log(savedConfigs);
+        }
+        else {
+          console.log('config not found');
+        }
+      })
+
+  }
 } else {
-  console.log('Format: $ eslint-confg save/load/remove nameOfConfig [dirOfProject]');
+  console.log('Format: $ eslint-confg save/load/remove/show nameOfConfig [dirOfProject]');
 }

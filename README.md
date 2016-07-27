@@ -12,3 +12,6 @@ Load config and install required eslint modules
 
 Remove loaded config and eslint modules.
 `eslint-confg remove react-babel [dir_path]`
+
+Show saved config. Use `all` for all configs.
+`eslint-confg show react-babel`
