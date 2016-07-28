@@ -1,6 +1,6 @@
 {
   "name": "eslint-confg",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "save and then generate saved eslint confs",
   "main": "index.js",
   "scripts": {

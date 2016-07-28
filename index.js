@@ -96,7 +96,7 @@ if (['save', 'load', 'remove', 'show'].indexOf(argv[0]) > -1 && argv[1]) {
         if (savedConfigs[argv[1]]) {
           console.log(Object.keys(savedConfigs));
         }
-        else if(savedConfigs[argv[1]] === 'all') {
+        else if(argv[1] === 'all') {
           console.log(savedConfigs);
         }
         else {
