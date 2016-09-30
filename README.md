@@ -1,5 +1,5 @@
 # eslint-confg
-save and then load saved eslint confs
+save and then load saved eslint confs in json file
 
 Install script globally.
 `npm install -g eslint-confg`
